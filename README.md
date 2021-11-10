@@ -1,2 +1,2 @@
 # TPSTimeAttack
- TPS(Third Person Shooting) project with ue4
+ TPS(Third Person Shooter) project with ue4
