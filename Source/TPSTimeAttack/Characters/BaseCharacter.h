@@ -26,4 +26,23 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+public:
+	/** Returns CameraBoom subobject **/
+	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
+
+	/** Returns Camera subobject **/
+	FORCEINLINE class UCameraComponent* GetCamera() const { return Camera; }
+
+	/** Set Camera Type	**/
+	FORCEINLINE void SetCameraType(ECameraTypes eNewCameraType, bool Init = false);
+	FORCEINLINE ECameraTypes GetCameraType() const { return CameraType; }
+
+private:
+	ECameraTypes CameraType = ECameraTypes::ECamera_TPS;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Camera, meta = (AllowPrivateAccess = true) )
+	USpringArmComponent* CameraBoom;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Camera, meta = (AllowPrivateAccess = true))
+	UCameraComponent* Camera;
 };
