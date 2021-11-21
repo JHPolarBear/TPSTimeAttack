@@ -32,15 +32,6 @@ ATPSTimeAttackCharacter::ATPSTimeAttackCharacter()
 	GetCharacterMovement()->JumpZVelocity = 600.f;
 	GetCharacterMovement()->AirControl = 0.2f;
 
-	static ConstructorHelpers::FClassFinder<UAnimInstance> BASE_ANIM(TEXT("AnimBlueprint'/Game/Animations/Charcters/BP_AnimBlueprint_BaseCharacter.BP_AnimBlueprint_BaseCharacter_C'"));
-	if(BASE_ANIM.Succeeded())
-	{
-		GetMesh()->SetAnimInstanceClass(BASE_ANIM.Class);
-	}
-	
-
-	
-
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
 }

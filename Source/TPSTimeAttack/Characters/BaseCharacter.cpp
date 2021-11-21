@@ -17,8 +17,23 @@ ABaseCharacter::ABaseCharacter()
 	// Initialize camera type with TPS view
 	SetCameraType(CameraType, true);
 
-	
-	
+	// set Default skeletal mesh
+	static ConstructorHelpers::FObjectFinder<USkeletalMesh> BASE_SK(TEXT("SkeletalMesh'/Game/AnimStarterPack/UE4_Mannequin/Mesh/SK_Mannequin.SK_Mannequin'"));
+	if(BASE_SK.Succeeded())
+	{
+		GetMesh()->SetSkeletalMesh(BASE_SK.Object);
+	}
+	else
+	{
+		LOG_ERROR(TEXT("Faild to set default skeletal mesh"));
+	}
+
+	// SetDefault Anim instance
+	static ConstructorHelpers::FClassFinder<UAnimInstance> BASE_ANIM(TEXT("AnimBlueprint'/Game/AnimStarterPack/UE4ASP_HeroTPP_AnimBlueprint.UE4ASP_HeroTPP_AnimBlueprint_C'"));
+	if(BASE_ANIM.Succeeded())
+	{
+		GetMesh()->SetAnimInstanceClass(BASE_ANIM.Class);
+	}
 }
 
 // Called when the game starts or when spawned
